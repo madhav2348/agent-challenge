@@ -12,7 +12,10 @@
         ],
         "entrypoint": [
           "/bin/sh"
-        ]
+        ],
+        "env":{
+          "GITHUB_TOKEN":"<TOKEN>"
+        }
       },
       "type": "container/run"
     }
