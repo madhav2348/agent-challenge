@@ -10,9 +10,6 @@
             "port": 8080
           }
         ],
-        "entrypoint": [
-          "/bin/sh"
-        ],
         "env":{
           "GITHUB_TOKEN":"<TOKEN>"
         }
