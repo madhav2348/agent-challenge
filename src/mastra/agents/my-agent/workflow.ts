@@ -42,7 +42,7 @@ _For each repository (limit to top 5 by star count) sort by stars on repo_
 
 ⚠️ NOTES & CONSIDERATIONS
 • All data is fetched via GitHub REST API v3
-• May be affected by GitHub rate limits
+• 
 `,
 });
 
@@ -75,14 +75,15 @@ const githubStatsSchema = z.object({
 });
 
 
-const fetchGitHubProfileData = async (username: string) => {
+const fetchGitHubProfileData = async (username: string,isorg:boolean) => {
+
   const headers = {
-    "Accept": "application/vnd.github+json",
+     "Accept": "application/vnd.github+json",
     "Authorization": `Bearer ${process.env.GITHUB_TOKEN}`,
     "X-GitHub-Api-Version": "2022-11-28",
-  };
+  }
 
-  const userUrl = `https://api.github.com/users/${username}`;
+  const userUrl = isorg? `https://api.github.com/orgs/${username}`:`https://api.github.com/users/${username}`;
   const userResponse = await fetch(userUrl, { headers });
   if (!userResponse.ok) throw new Error("GitHub user not found");
   const userData = await userResponse.json();
@@ -125,10 +126,11 @@ const fetchGitHubStats = createStep({
   description: "Fetch GitHub profile and repository data",
   inputSchema: z.object({
     username: z.string().describe("GitHub username or organization"),
+    isOrg:z.boolean().describe('True if GitHub organization')
   }),
   outputSchema: githubStatsSchema,
   execute: async ({ inputData }) => {
-    return await fetchGitHubProfileData(inputData.username);
+    return await fetchGitHubProfileData(inputData.username,inputData.isOrg);
   },
 });
 
