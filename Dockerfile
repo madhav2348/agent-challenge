@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy package files
-COPY package.json pnpm-lock.yaml ./
+COPY .env package.json pnpm-lock.yaml ./
 
 # Install dependencies
 RUN pnpm install
