@@ -94,7 +94,7 @@ docker build -t github-insight-agent .
 #### 🚀 Run the container:
 
 ```bash
-docker run -p 8080:8080 --env GITHUB_TOKEN=your_github_token github-insight-agent github-insight-agent
+docker run -p 8080:8080 --env GITHUB_TOKEN=YOUR_GITHUB_TOKEN github-insight-agent 
 ```
 
 You can also use a `.env` file by adding `--env-file .env` to the `docker run` command.
