@@ -9,10 +9,7 @@
           {
             "port": 8080
           }
-        ],
-        "env":{
-          "GITHUB_TOKEN":"<TOKEN>"
-        }
+        ]
       },
       "type": "container/run"
     }
