@@ -30,7 +30,7 @@ PROCESS:
 EXAMPLE RESPONSES:
 - "torvalds, it an user" → Use userTool with owner: "torvalds"
 - "microsoft, its an org" → Use orgsTool with owner: "microsoft"  
-- "facebook/react repository" → Use orgsTool with owner: "facebook", repo:react
+- "facebook/react repository" → Use orgsTool with owner: "facebook", repo:"react"
 
 NEVER give generic responses.
 `;

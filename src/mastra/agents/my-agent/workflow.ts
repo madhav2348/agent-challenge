@@ -162,6 +162,7 @@ const githubStatsWorkflow = createWorkflow({
   id: "github-stats-workflow",
   inputSchema: z.object({
     username: z.string().describe("GitHub username or organization"),
+     isOrg: z.boolean().describe("True if GitHub organization"),  
   }),
   outputSchema: z.object({
     report: z.string(),
